@@ -102,8 +102,17 @@
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
-
+    function fightMonsters(hp) {
+      let lifePoints = hp;
+      let round = 1;
+      let statement;
+      while (lifePoints > 0) {
+        lifePoints -= round;
+        statement = `You died in round ${round}`;
+        round++;
+      }
+      
+      return statement;
     }
 
     // 👉 CHALLENGE 5
@@ -113,8 +122,14 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
-
+    function findEvenNums(nums) {
+      const evenNums = [];
+      for (i = 0; i < nums.length + 1; i++) {
+        if (nums[i] % 2 === 0) {
+          evenNums.push(nums[i]);
+        }
+      }
+      return evenNums;
     }
 
     // 👉 CHALLENGE 6
@@ -124,8 +139,18 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
-
+    function separateAges(ages) {
+      const minorAges = [];
+      const adultAges = [];
+      const result = [minorAges, adultAges];
+      for (i = 0; i < ages.length; i++) {
+        if (ages[i] < 21) {
+          minorAges.push(ages[i]);
+        } else {
+          adultAges.push(ages[i]);
+        }
+      }
+      return result;
     }
 
     // 👉 CHALLENGE 7
@@ -135,8 +160,15 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
-
+    function headAndTail(num) {
+      const coin = {
+        head: num[0],
+        tail: []
+      }
+      for (i = 1; i < num.length; i++) {
+        coin.tail.push(num[i]);
+      }
+      return coin;
     }
 
     // 👉 CHALLENGE 8
